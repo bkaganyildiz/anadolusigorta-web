@@ -4,15 +4,18 @@
 angular.module('myApp', [
     'ngRoute',
     'myApp.version',
-    'myApp.recommend'
+    'myApp.recommend',
+    'myApp.analyze',
+    'myApp.prediction',
+    'angularjs-dropdown-multiselect'
 ]).config(['$locationProvider', '$routeProvider','$httpProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 
-    $routeProvider.otherwise({redirectTo: '/index'});
+    $routeProvider.otherwise({redirectTo: '/recommend'});
 
-    $routeProvider.when('/index', {
+/*    $routeProvider.when('/index', {
         templateUrl: '/index.html'
-    });
+    });*/
 
     //$httpProvider.defaults.headers.common['X-CSRFToken'] = '{{ csrf_token|escapejs }}';
 

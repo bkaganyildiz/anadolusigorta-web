@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyze</title>
+</head>
+<body>
+<div class="container">
+    <br>
+    <br>
+    <br>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Correlation</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span>First Field : </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <div ng-dropdown-multiselect="" options="allFields" selected-model="corrfield1model" extra-settings="corrSett"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span>Second Field : </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <div ng-dropdown-multiselect="" options="allFields" selected-model="corrfield2model" extra-settings="corrSett"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-primary" ng-click="submitCorr()">Submit!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <img style="width:1000px" src="data:image/png;base64,{{corrChart}}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Count</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span>Field : </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <div ng-dropdown-multiselect="" options="allFields" selected-model="countFieldModel" extra-settings="countSett"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span>Percentage : </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="countPerc">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-primary" ng-click="submitCount()">Submit!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <img style="width:1000px" src="data:image/png;base64,{{countChart}}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Distribution</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span>First Field : </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <div ng-dropdown-multiselect="" options="allFields" selected-model="distField1model" extra-settings="countSett"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span>Second Field : </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <div ng-dropdown-multiselect="" options="allFields" selected-model="distField2model" extra-settings="countSett"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-primary" ng-click="submitDist()">Submit!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7">
+                    <img style="width:1000px" src="data:image/png;base64,{{distChart}}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

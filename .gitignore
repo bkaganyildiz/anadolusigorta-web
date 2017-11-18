@@ -2,3 +2,5 @@
 e2e-tests
 LICENSE
 node_modules
+bower_components
+app/bower_components
