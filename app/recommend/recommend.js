@@ -11,11 +11,37 @@ angular.module('myApp.recommend', ['ngRoute'])
 
     .controller('RecommendCtrl', ['$scope', 'RecommendService', function ($scope, RecommendService) {
 
-        // Set the Content-Type
+        RecommendService.getAllPolicies().then(
+            function success(response) {
+                $scope.policies = JSON.parse(response.data);
+                debugger;
+            },
+            function error(response) {
+                debugger;
+            }
+        );
 
-        $scope.getUser = function () {
-            RecommendService.getUserList().then(
+        $scope.selectedPolicies = [];
+        $scope.minSupport = 0.001;
+        $scope.minConfidence = 0.5;
+        $scope.corrSett = {
+            enableSearch: true,
+            showCheckAll: false,
+            showUncheckAll: false,
+            scrollable: true
+        };
+
+
+        $scope.submitRecomm = function () {
+            RecommendService.getAssocRule(
+                {
+                    "first": $scope.selectedPolicies,
+                    "minSupport": $scope.minSupport,
+                    "minConfidence": $scope.minConfidence
+                }
+            ).then(
                 function success(response) {
+                    $scope.assocRules = JSON.parse(response.data).associations;
                     debugger;
                 },
                 function error(response) {

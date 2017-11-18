@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Score</title>
+</head>
+<body>
+<div class="container">
+    <br>
+    <br>
+    <br>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Score</h3>
+        </div>
+        <div class="panel-body">
+            <span ng-show="loading">Loading...</span>
+            <div class="col-sm-12">
+                <img style="width:1000px" src="data:image/png;base64,{{result.accuracy}}"/>
+            </div>
+
+            <div class="col-sm-12">
+                <img style="width:1000px" src="data:image/png;base64,{{result.specificity}}"/>
+            </div>
+
+            <div class="col-sm-12">
+                <img style="width:1000px" src="data:image/png;base64,{{result.sensitivity}}"/>
+            </div>
+
+            <div class="col-sm-12">
+                <img style="width:1000px" src="data:image/png;base64,{{result.tp}}"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

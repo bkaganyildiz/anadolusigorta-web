@@ -3,23 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Recommend</title>
+    <style>
+        input{
+            width: 78px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-    <div class="form-group">
-        <fieldset disabled="">
-            <label class="control-label" for="disabledInput">Disabled input</label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-        </fieldset>
+    <br>
+    <br>
+    <br>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Recommendation</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Policies </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <div ng-dropdown-multiselect="" options="policies" selected-model="selectedPolicies" extra-settings="corrSett"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-6">
+                            <label> Minimum Support </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" name="input" ng-model="minSupport" min="0" max="1">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-6">
+                            <label> Minimum Confidence </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" name="input" ng-model="minConfidence" min="0" max="1">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <button type="button" class="btn btn-primary" ng-click="submitRecomm()">Submit!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <th>LHS</th>
+                            <th>RHS</th>
+                            <th>Support</th>
+                            <th>Confidence</th>
+                            <th>Lift</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="assoc in assocRules">
+                                <td>
+                                    <span ng-repeat="src in assoc.source">
+                                        {{src}}
+                                        <br>
+                                    </span>
+                                </td>
+                                <td>{{assoc.dest}}</td>
+                                <td>{{assoc.support}}</td>
+                                <td>{{assoc.confidence}}</td>
+                                <td>{{assoc.lift}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="form-group">
-        <fieldset>
-            <label class="control-label" for="readOnlyInput">Readonly input</label>
-            <input class="iform-control" id="readOnlyInput" type="text" placeholder="Readonly input here…" readonly="">
-        </fieldset>
-    </div>
-    <button type="button", ng-click="getUser()">Click Me!</button>
 </div>
 
 </body>

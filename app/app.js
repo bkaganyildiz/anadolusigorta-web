@@ -7,6 +7,7 @@ angular.module('myApp', [
     'myApp.recommend',
     'myApp.analyze',
     'myApp.prediction',
+    'myApp.score',
     'angularjs-dropdown-multiselect'
 ]).config(['$locationProvider', '$routeProvider','$httpProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
