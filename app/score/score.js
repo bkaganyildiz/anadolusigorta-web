@@ -13,7 +13,7 @@ angular.module('myApp.score', ['ngRoute'])
 
 
         $scope.loading = true;
-        $http.get('/recommend/predictionScores/').then(
+        $http.get('/recommend/predictionSystem/').then(
             function success(response) {
                 debugger;
                 $scope.result = JSON.parse(response.data);

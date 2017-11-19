@@ -6,20 +6,125 @@
 </head>
 <body>
 <div class="container">
-    <div class="form-group">
-        <fieldset disabled="">
-            <label class="control-label" for="disabledInput">Disabled input</label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-        </fieldset>
-    </div>
+    <br>
+    <br>
+    <br>
 
-    <div class="form-group">
-        <fieldset>
-            <label class="control-label" for="readOnlyInput">Readonly input</label>
-            <input class="iform-control" id="readOnlyInput" type="text" placeholder="Readonly input here…" readonly="">
-        </fieldset>
-    </div>
-    <button type="button", ng-click="getUser()">Click Me!</button>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Prediction</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <th></th>
+                <th></th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Customer SubType:</td>
+                    <td>
+                        <select ng-model="result['0']">
+                            <option ng-value="x.id" ng-repeat="x in catL0">{{x.label}}</option>>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Average Income:</td>
+                    <td>
+                        <select ng-model="result['41']">
+                            <option ng-value="x.id" ng-repeat="x in catL3">{{x.label}}</option>>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Married:</td>
+                    <td>
+                        <select ng-model="result['9']">
+                            <option ng-value="x.id" ng-repeat="x in catL3">{{x.label}}</option>>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Home Owners:</td>
+                    <td>
+                        <select ng-model="result['30']">
+                            <option ng-value="x.id" ng-repeat="x in catL3">{{x.label}}</option>>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>One car:</td>
+                    <td>
+                        <select ng-model="result['31']">
+                            <option ng-value="x.id" ng-repeat="x in catL3">{{x.label}}</option>>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Purchasing Power Class:</td>
+                    <td>
+                        <select ng-model="result['42']">
+                            <option ng-value="x.id" ng-repeat="x in catL3">{{x.label}}</option>>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <button type="button" class="btn btn-primary" ng-click="submitPred()">Submit!</button>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div ng-show="loading">Loading...</div>
+            <div ng-if="resultExist">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h3> Result </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label style="color: red;font-size: medium;" ng-if="results.prediction">Customer buy caravan policy!</label>
+                        <label style="color: red;font-size: medium;" ng-if="!results.prediction">Customer does not buy caravan policy!</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <table class="table table-striped">
+                            <thead>
+                                <th>
+                                <th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Accuracy</td>
+                                    <td>{{results.accuracy}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Sensitivity</td>
+                                    <td>{{results.sensitivity}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Specificity</td>
+                                    <td>{{results.specificity}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 </div>
 
 </body>

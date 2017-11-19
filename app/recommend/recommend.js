@@ -24,6 +24,7 @@ angular.module('myApp.recommend', ['ngRoute'])
         $scope.selectedPolicies = [];
         $scope.minSupport = 0.001;
         $scope.minConfidence = 0.5;
+        $scope.loading = false;
         $scope.corrSett = {
             enableSearch: true,
             showCheckAll: false,
@@ -33,6 +34,7 @@ angular.module('myApp.recommend', ['ngRoute'])
 
 
         $scope.submitRecomm = function () {
+            $scope.loading = true;
             RecommendService.getAssocRule(
                 {
                     "first": $scope.selectedPolicies,
@@ -46,6 +48,10 @@ angular.module('myApp.recommend', ['ngRoute'])
                 },
                 function error(response) {
                     debugger;
+                }
+            ).finally(
+                function () {
+                    $scope.loading = false;
                 }
             );
         }
