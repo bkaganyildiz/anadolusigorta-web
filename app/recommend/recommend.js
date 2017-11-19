@@ -22,7 +22,7 @@ angular.module('myApp.recommend', ['ngRoute'])
         );
 
         $scope.selectedPolicies = [];
-        $scope.minSupport = 0.001;
+        $scope.minSupport = 0.01;
         $scope.minConfidence = 0.5;
         $scope.loading = false;
         $scope.corrSett = {
